@@ -4,10 +4,6 @@ Created on Thu May 30 10:26:14 2019
 
 @author: sachi
 """
-
-# A Python program for Prim's Minimum Spanning Tree (MST) algorithm. 
-# The program is for adjacency matrix representation of the graph 
-
 import sys # Library for INT_MAX 
 import numpy as np
 import csv
@@ -18,6 +14,9 @@ import networkx as nx
 import CATMNetworkGraphINT
 
 #Start of the MST using Prims Algorithm
+# A Python program for Prim's Minimum Spanning Tree (MST) algorithm. 
+# The program is for adjacency matrix representation of the graph 
+
 class Graph(): 
   
     def __init__(self, vertices): 
@@ -121,27 +120,11 @@ for edge in edgeList :
     G.add_edge(edge[0], edge[1], status=edge[2])		                  
 
 nodeGroup =  CATMNetworkGraphINT.Nodes_Cluster(G,46)
-#print(nodeGroup)
-#g = Graph(2)
-#g.graph = np.genfromtxt("NCCountyLinks1.csv", dtype='int', delimiter=',')
 
 startTime = datetime.datetime.now()
 
-
-#with open("fileForRP.csv",'w',newline ='') as outputFile:
-#    csv_writer = csv.writer(outputFile)
-#    
-#    for line in edgeList:
-#        csv_writer.writerow(line)
-        
-
 #for Short-term restoration (STRR)
 mqSTRR = Model(name="STRR")
-
-#reading csv files
-
-#allEdges = np.genfromtxt("fileForRP.csv", dtype='int', delimiter=',')
-#edgeList = allEdges.tolist()
 
 AllEdges = []
 for edge in edgeList:
@@ -168,10 +151,6 @@ numNodes = 50
 weightRCC = 1
 weightAirport = 1
 
-#CountynPopulation = np.genfromtxt("INTCountyPopulation.csv", delimiter=",", dtype=None, encoding= None)
-#my_dict = dict()
-#for i in range(len(CountynPopulation)):
-#   my_dict[CountynPopulation[i][0]] = CountynPopulation[i][1]
 
 CountynPopulation = {}
 with open('INTCountyPopulation.csv','r') as csvfile:
@@ -374,9 +353,6 @@ numTimePeriods = 40
 
 #reading csv files
 
-#allEdges = np.genfromtxt("fileForRP.csv", dtype='int', delimiter=',')
-#edgeList = allEdges.tolist()
-
 AllEdges = []
 for edge in edgeList:
     AllEdges.append((edge[0],edge[1]))
@@ -482,7 +458,6 @@ for e in DamageEdges:
             dictResAllocation[(e,t)] = var
 
 listRestorationSequence2.sort()
-
 
 #writing csv file
 with open(LTRROutput1+ ".csv",'w',newline ='') as outputFile:
